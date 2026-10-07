@@ -174,6 +174,9 @@ Turns();
 
 void update(int value) {
     angle += 2.0f;                // Update the angle of rotation
+    if (angle >= 360.0f) {
+        angle -= 360.0f;           // Keep the angle bounded without changing the rotation
+    }
     up_Turns();
     glutPostRedisplay();          // Call the display function
     glutTimerFunc(25, update, 0); // Call update function after 25 milliseconds
