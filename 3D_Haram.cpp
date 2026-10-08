@@ -188,6 +188,8 @@ int main(int argc, char** argv) {
     glutInitWindowSize(800, 600);
     glutCreateWindow("Jalal Zerroudi");
 
+    glEnable(GL_DEPTH_TEST);
+
     glutDisplayFunc(renderScene);
 
     glutTimerFunc(3, update, 0);
