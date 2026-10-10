@@ -30,6 +30,7 @@ void Turns(){
     glPopMatrix();
     glMatrixMode(GL_PROJECTION);
     glPopMatrix();
+    glMatrixMode(GL_MODELVIEW);
 }
 
 void JALAL(float A, float B, float c){
