@@ -6,6 +6,8 @@
 float angle = 0.0f;
 int turns = 0;
 char turnsString[100];
+int windowWidth = 800;
+int windowHeight = 600;
 
 void up_Turns(){
     turns++;
@@ -15,12 +17,12 @@ void Turns(){
    glMatrixMode(GL_PROJECTION);
     glPushMatrix();
     glLoadIdentity();
-    gluOrtho2D(0, 800, 0, 600);
+    gluOrtho2D(0, windowWidth, 0, windowHeight);
     glMatrixMode(GL_MODELVIEW);
     glPushMatrix();
     glLoadIdentity();
     glColor3f(1.0f, 1.0f, 1.0f);
-    glRasterPos2f(10, 580);
+    glRasterPos2f(10, windowHeight - 20);
     sprintf(turnsString, "Call update function after 25 milliseconds -- >> Turns: %d ", turns);
     int length= strlen(turnsString);
 
@@ -84,7 +86,7 @@ void renderScene() {
     // Set up perspective projection
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(45.0f, 800.0f / 600.0f, 0.1f, 100.0f);
+    gluPerspective(45.0f, static_cast<float>(windowWidth) / windowHeight, 0.1f, 100.0f);
 
     // Set up camera position
     glMatrixMode(GL_MODELVIEW);
@@ -173,6 +175,13 @@ Turns();
     glutSwapBuffers();
 }
 
+void reshape(int width, int height) {
+    windowWidth = width;
+    windowHeight = height > 0 ? height : 1;
+    glViewport(0, 0, windowWidth, windowHeight);
+    glutPostRedisplay();
+}
+
 void update(int value) {
     angle += 2.0f;                // Update the angle of rotation
     if (angle >= 360.0f) {
@@ -192,6 +201,7 @@ int main(int argc, char** argv) {
     glEnable(GL_DEPTH_TEST);
 
     glutDisplayFunc(renderScene);
+    glutReshapeFunc(reshape);
 
     glutTimerFunc(3, update, 0);
 
