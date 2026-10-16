@@ -31,6 +31,14 @@ g++ 3D_Haram.cpp -o 3d-code -lglut -lGLU -lGL
 
 The program opens an 800 × 600 window. The pyramid rotates around the Y axis; a timer updates the rotation and the displayed counter.
 
+
+## Runtime behavior
+
+- The timer requests an update every **25 ms** (about **40 updates per second**).
+- Each update advances the Y-axis angle by **2°** and wraps it after **360°**. One complete rotation therefore takes 180 updates, or approximately **4.5 seconds**.
+- The on-screen `Turns` value counts timer callbacks; it is not a frame-rate measurement or a count of completed rotations.
+- Resizing the window updates the viewport and perspective aspect ratio, while depth testing keeps nearer faces in front.
+
 ## Notes
 
 This example uses the traditional fixed-function OpenGL API and GLUT bitmap text. It is intended as a small learning/demo project rather than a modern OpenGL application. The OBJ file is present as a separate asset and is not rendered by the current source.
