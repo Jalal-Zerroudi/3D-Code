@@ -39,6 +39,19 @@ The program opens an 800 × 600 window. The pyramid rotates around the Y axis; a
 - The on-screen `Turns` value counts timer callbacks; it is not a frame-rate measurement or a count of completed rotations.
 - Resizing the window updates the viewport and perspective aspect ratio, while depth testing keeps nearer faces in front.
 
+## Troubleshooting and visual check
+
+| Symptom | Check |
+| --- | --- |
+| `GL/glut.h: No such file or directory` | Install the development headers, not only the runtime library; on Ubuntu/Debian, use the `freeglut3-dev` package listed above. |
+| `undefined reference` to `glut*`, `glu*`, or `gl*` | Keep `-lglut -lGLU -lGL` after `3D_Haram.cpp` in the build command. |
+| The application cannot open a display | Run from a graphical desktop session. SSH, containers, and WSL need access to a working display server; successful compilation alone does not provide one. |
+| The window opens but the scene does not render | Confirm that the graphics environment supports the legacy fixed-function OpenGL calls used by this example. |
+
+After launching, check that the colored pyramid rotates, the `Turns` counter increases, and resizing the window preserves the pyramid's proportions. No keyboard or mouse controls are registered in the current source; use the window manager's close control to end the demo.
+
+The build command above targets Linux-style OpenGL libraries. Windows and macOS require platform-specific GLUT/OpenGL setup and linker options; this repository does not currently provide those build configurations.
+
 ## Notes
 
 This example uses the traditional fixed-function OpenGL API and GLUT bitmap text. It is intended as a small learning/demo project rather than a modern OpenGL application. The OBJ file is present as a separate asset and is not rendered by the current source.
