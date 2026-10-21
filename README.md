@@ -32,6 +32,17 @@ g++ 3D_Haram.cpp -o 3d-code -lglut -lGLU -lGL
 The program opens an 800 × 600 window. The pyramid rotates around the Y axis; a timer updates the rotation and the displayed counter.
 
 
+## Rendering pipeline
+
+Each refresh follows the order implemented in `renderScene()`:
+
+1. Clear the color and depth buffers, rebuild a 45° perspective projection, and place the camera with `gluLookAt`.
+2. Rotate the model-view matrix around the Y axis and draw the pyramid's four side triangles. The source does not draw a bottom face, so the pyramid is open underneath.
+3. Render the decorative `*` characters with `JALAL()` and `JALAL_SWIT()`. These are GLUT bitmap glyphs positioned in 3D; they are not geometry loaded from `cat_model.obj`.
+4. Switch temporarily to a pixel-based orthographic projection in `Turns()` to draw the counter, then restore both matrices.
+5. Present the completed back buffer with `glutSwapBuffers()`, which avoids drawing an incomplete frame on screen.
+
+
 ## Runtime behavior
 
 - The timer requests an update every **25 ms** (about **40 updates per second**).
