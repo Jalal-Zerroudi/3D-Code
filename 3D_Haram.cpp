@@ -14,6 +14,8 @@ void up_Turns(){
 }
 
 void Turns(){
+    const GLboolean depthTestEnabled = glIsEnabled(GL_DEPTH_TEST);
+    glDisable(GL_DEPTH_TEST);
    glMatrixMode(GL_PROJECTION);
     glPushMatrix();
     glLoadIdentity();
@@ -33,6 +35,9 @@ void Turns(){
     glMatrixMode(GL_PROJECTION);
     glPopMatrix();
     glMatrixMode(GL_MODELVIEW);
+    if (depthTestEnabled) {
+        glEnable(GL_DEPTH_TEST);
+    }
 }
 
 void JALAL(float A, float B, float c){
