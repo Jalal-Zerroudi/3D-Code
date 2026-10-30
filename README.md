@@ -22,7 +22,29 @@ sudo apt install g++ freeglut3-dev
 
 ## Build and run
 
-From the repository directory:
+### CMake
+
+The repository includes a portable CMake configuration that discovers OpenGL,
+GLU, and GLUT and enables common compiler warnings:
+
+```bash
+cmake -S . -B build
+cmake --build build
+```
+
+Run the executable from the generated build directory. With a single-config
+generator on Linux or macOS:
+
+```bash
+./build/3d-code
+```
+
+Multi-config generators such as Visual Studio may place the executable in a
+configuration subdirectory, for example `build\\Debug\\3d-code.exe`.
+
+### Direct compiler command
+
+On Linux, the original one-command build remains available:
 
 ```bash
 g++ 3D_Haram.cpp -o 3d-code -lglut -lGLU -lGL
