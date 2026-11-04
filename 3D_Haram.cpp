@@ -25,7 +25,8 @@ void Turns(){
     glLoadIdentity();
     glColor3f(1.0f, 1.0f, 1.0f);
     glRasterPos2f(10, windowHeight - 20);
-    sprintf(turnsString, "Call update function after 25 milliseconds -- >> Turns: %d ", turns);
+    snprintf(turnsString, sizeof turnsString,
+             "Call update function after 25 milliseconds -- >> Turns: %d ", turns);
     int length= strlen(turnsString);
 
     for (int i = 0; i < length; i++) {
@@ -187,7 +188,7 @@ void reshape(int width, int height) {
     glutPostRedisplay();
 }
 
-void update(int value) {
+void update(int) {
     angle += 2.0f;                // Update the angle of rotation
     if (angle >= 360.0f) {
         angle -= 360.0f;           // Keep the angle bounded without changing the rotation

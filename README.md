@@ -70,6 +70,7 @@ Each refresh follows the order implemented in `renderScene()`:
 - The timer requests an update every **25 ms** (about **40 updates per second**).
 - Each update advances the Y-axis angle by **2°** and wraps it after **360°**. One complete rotation therefore takes 180 updates, or approximately **4.5 seconds**.
 - The on-screen `Turns` value counts timer callbacks; it is not a frame-rate measurement or a count of completed rotations.
+- Counter text is formatted with a bounded write before it is rendered from the fixed-size display buffer.
 - Resizing the window updates the viewport and perspective aspect ratio, while depth testing keeps nearer faces in front.
 
 ## Troubleshooting and visual check
