@@ -127,10 +127,6 @@ void renderScene() {
     glVertex3f(-1.0f, -1.0f, -1.0f); // Back left vertex
 
 
-    glColor3f(1.0f, 1.0f, 1.0f); // Set color to white
-    glRasterPos3f(-0.5f, 0.0f, 0.0f); // Set the position for rendering
-
-
     glColor3f(1.0f, 0.0f, 0.0f);
     glVertex3f(0.0f, 1.0f, 0.0f);    // Top vertex
     glColor3f(0.0f, 0.0f, 1.0f);
