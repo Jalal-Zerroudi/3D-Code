@@ -178,7 +178,7 @@ Turns();
 }
 
 void reshape(int width, int height) {
-    windowWidth = width;
+    windowWidth = width > 0 ? width : 1;
     windowHeight = height > 0 ? height : 1;
     glViewport(0, 0, windowWidth, windowHeight);
     glutPostRedisplay();
