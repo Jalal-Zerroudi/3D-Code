@@ -1,0 +1,16 @@
+# CMake out-of-source build directories
+/build/
+/cmake-build-*/
+
+# IDE and editor state
+/.vs/
+/.vscode/
+/.idea/
+*.suo
+*.user
+
+# Compiler output
+*.o
+*.obj
+/3d-code
+/3d-code.exe
