@@ -1,5 +1,7 @@
 # 3D-Code
 
+[![Build](https://github.com/Jalal-Zerroudi/3D-Code/actions/workflows/build.yml/badge.svg)](https://github.com/Jalal-Zerroudi/3D-Code/actions/workflows/build.yml)
+
 Small C++ / OpenGL project for a 3D graphics module. The current program displays a rotating, multicolored pyramid and an on-screen frame counter using GLUT.
 
 ## Project files
@@ -41,6 +43,11 @@ generator on Linux or macOS:
 
 Multi-config generators such as Visual Studio may place the executable in a
 configuration subdirectory, for example `build\\Debug\\3d-code.exe`.
+
+The `Build` GitHub Actions workflow runs the same CMake configuration on Ubuntu
+for every push to `main` and every pull request targeting `main`. It installs the
+FreeGLUT development package and compiles the executable, but does not launch the
+graphical application in the headless runner.
 
 ### Direct compiler command
 
