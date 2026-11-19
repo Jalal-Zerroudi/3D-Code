@@ -93,6 +93,24 @@ After launching, check that the colored pyramid rotates, the `Turns` counter inc
 
 The build command above targets Linux-style OpenGL libraries. Windows and macOS require platform-specific GLUT/OpenGL setup and linker options; this repository does not currently provide those build configurations.
 
+## Asset provenance and licensing
+
+This repository currently has no `LICENSE` file, and no source, author, or
+redistribution terms are recorded for `cat_model.obj`. The model is not loaded
+by the current executable, but its presence in the repository does not establish
+permission to reuse it elsewhere.
+
+Before redistributing the source, publishing a binary, or adding the OBJ model to
+the rendered scene:
+
+1. choose and add an explicit license for the project source;
+2. identify the model's original source and author;
+3. record the model's license and any attribution requirements;
+4. replace the asset if its redistribution rights cannot be confirmed.
+
+Keep project licensing and third-party asset licensing separate so that users can
+tell which terms apply to each file.
+
 ## Notes
 
 This example uses the traditional fixed-function OpenGL API and GLUT bitmap text. It is intended as a small learning/demo project rather than a modern OpenGL application. The OBJ file is present as a separate asset and is not rendered by the current source.
