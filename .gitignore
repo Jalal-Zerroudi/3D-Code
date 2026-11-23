@@ -11,6 +11,6 @@
 
 # Compiler output
 *.o
-*.obj
+/3D_Haram.obj
 /3d-code
 /3d-code.exe
